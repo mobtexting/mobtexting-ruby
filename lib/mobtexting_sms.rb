@@ -50,6 +50,17 @@ module MobtextingSms
 				'Authorization' => @access_token
 			).read
 		end
+
+		# id received while send
+		def cancel(id)
+			api_endpoint = 'https://portal.mobtexting.com/api/v2/'
+			url = api_endpoint + 'verify/cancel/' + id
+
+			return open(url,
+				'Accept' => 'application/json',
+				'Authorization' => @access_token
+			).read
+		end
 	end
 
 end
