@@ -1,5 +1,7 @@
 require "mobtexting_sms/version"
 require 'open-uri'
+require 'net/http'
+require 'net/https'
 
 module MobtextingSms
 	class Error < StandardError; end
