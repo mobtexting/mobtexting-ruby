@@ -25,11 +25,12 @@ module MobtextingSms
 		end
 		def send(to)
 			api_endpoint = 'https://portal.mobtexting.com/api/v2/'
-			url = api_endpoint + '/verify?to=' + to
+			url = api_endpoint + 'verify?to=' + to
 
 			url = URI.parse(url)
 			https = Net::HTTP.new(url.host,url.port)
 			https.use_ssl = true
+			return url
 			req = Net::HTTP::Post.new(url)
 
 			req['Accept'] = 'application/json'
