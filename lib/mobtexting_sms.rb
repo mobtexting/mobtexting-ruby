@@ -45,7 +45,10 @@ module MobtextingSms
 			api_endpoint = 'https://portal.mobtexting.com/api/v2/'
 			url = api_endpoint + 'verify/check/' + id + '/' + token
 
-			return open(url).read
+			return open(url,
+				'Accept' => 'application/json',
+				'Authorization' => @access_token
+			).read
 		end
 	end
 
