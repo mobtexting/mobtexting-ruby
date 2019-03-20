@@ -1,35 +1,58 @@
-# MobtextingSms
+# ruby plugin for mobtexting
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mobtexting_sms`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This package makes it easy to send [Mobtexting notifications](https://mobtexting.com).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add the dependency to your Gemfile
 
-```ruby
-gem 'mobtexting_sms'
+`gem 'mobtexting_sms', :git => 'https://github.com/mobtexting/mobtexting-ruby.git'`
+
+Then run:
+``` bash
+bundle install
 ```
 
-And then execute:
+## Send SMS Usage
 
-    $ bundle
+```ruby
+require "mobtexting_sms"
 
-Or install it yourself as:
+access_token = 'xxxxxxxxxxxxxxxxx'
 
-    $ gem install mobtexting_sms
+client = MobtextingSms::Client.new(access_token)
+response = client.send(
+        '1234567890',
+        'MobTxt',
+        'hello from ruby!',
+        'P'
+)
 
-## Usage
+puts(response)
 
-TODO: Write usage instructions here
+```
 
-## Development
+## Verify Usage
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Send
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+verify = MobtextingSms::Verify.new(access_token)
+response = verify.send('1234567890')
+puts(response)
+```
 
-## Contributing
+### Check
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mobtexting_sms.
+```ruby
+verify = MobtextingSms::Verify.new(access_token)
+response = verify.check('705f1cd4-93e0-492e-b6f8-ffdf9dac68f5')
+puts(response)
+```
+
+### Cancel
+```ruby
+verify = MobtextingSms::Verify.new(access_token)
+response = verify.cancel('705f1cd4-93e0-492e-b6f8-ffdf9dac68f5') 
+puts(response)
+```
