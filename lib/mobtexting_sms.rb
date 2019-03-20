@@ -38,6 +38,15 @@ module MobtextingSms
 
 			return res.body
 		end
+
+		# id received while send
+		# token entered by user
+		def check(id, token)
+			api_endpoint = 'https://portal.mobtexting.com/api/v2/'
+			url = api_endpoint + 'verify/check/' + id + '/' + token
+
+			return open(url).read
+		end
 	end
 
 end
