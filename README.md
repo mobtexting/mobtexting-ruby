@@ -22,10 +22,10 @@ access_token = 'xxxxxxxxxxxxxxxxx'
 
 client = MobtextingSms::Client.new(access_token)
 response = client.send(
-        '1234567890',
-        'MobTxt',
-        'hello from ruby!',
-        'P'
+        '1234567890', # to phone number
+        'MobTxt', # sender
+        'hello from ruby!', # message body
+        'P' # service
 )
 
 puts(response)
