@@ -30,7 +30,6 @@ module MobtextingSms
 			url = URI.parse(url)
 			https = Net::HTTP.new(url.host,url.port)
 			https.use_ssl = true
-			return url
 			req = Net::HTTP::Post.new(url)
 
 			req['Accept'] = 'application/json'
