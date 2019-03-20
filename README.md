@@ -38,7 +38,7 @@ puts(response)
 
 ```ruby
 verify = MobtextingSms::Verify.new(access_token)
-response = verify.send('1234567890') // to phone number
+response = verify.send('1234567890') # to phone number
 puts(response)
 ```
 
@@ -47,8 +47,8 @@ puts(response)
 ```ruby
 verify = MobtextingSms::Verify.new(access_token)
 response = verify.check(
-	'705f1cd4-93e0-492e-b6f8-ffdf9dac68f5', // id received while send
-	'123456' // token entered by user
+	'705f1cd4-93e0-492e-b6f8-ffdf9dac68f5', # id received while send
+	'123456' # token entered by user
 )
 puts(response)
 ```
@@ -56,6 +56,6 @@ puts(response)
 ### Cancel
 ```ruby
 verify = MobtextingSms::Verify.new(access_token)
-response = verify.cancel('705f1cd4-93e0-492e-b6f8-ffdf9dac68f5') // id received while send
+response = verify.cancel('705f1cd4-93e0-492e-b6f8-ffdf9dac68f5') # id received while send
 puts(response)
 ```
